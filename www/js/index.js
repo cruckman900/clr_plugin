@@ -27,15 +27,17 @@ function onDeviceReady() {
     console.log('Running cordova-' + cordova.platformId + '@' + cordova.version);
     document.getElementById('deviceready').classList.add('ready');
 
-    window.roundTripData("hello world", function(returnText) {
+    window.plugins.RoundTrip.roundTripData("hello world", function(returnText) {
         alert(returnText);
     });
 }
 
-var PLUGIN = "WhiteListPlugin";
-
-window.roundTripData = function(text, callback) {
-    cordova.exec(callback, function(err) {
-        callback("error: " + err);
-    }, PLUGIN, "roundTrip", [text]);
-}
+//var PLUGIN = "Whitelist";
+//
+//var WhitelistPlugin = {
+//    roundTripData: function(text, callback) {
+//        cordova.exec(callback, function(err) {
+//            callback("error: " + err);
+//        }, PLUGIN, "roundTrip", [text]);
+//    }
+//}
